@@ -169,9 +169,9 @@ function Courses() {
                 <div className="flex justify-between items-center text-sm mb-4">
                   <span className="font-bold text-emerald-400 text-lg">
                     ${course.price}
-                    <span className="text-gray-500 line-through ml-2">$5999</span>
+                    
                   </span>
-                  <span className="text-green-400">20% off</span>
+                  
                 </div>
                 <button
                   onClick={() => {
