@@ -12,6 +12,11 @@ import cors from "cors";
 dotenv.config();
 
 const app = express();
+
+const allowedOrigins=[
+  "https://course-selling-app-rust.vercel.app",
+  "https://localhost:5173"
+];
 const port = process.env.PORT || 3000;
 const DB_URI = process.env.MONGO_URI;
 
@@ -22,14 +27,18 @@ app.use(fileUpload({
     useTempFiles : true,
     tempFileDir : '/tmp/'
 }));
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true,//handle cookies
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+app.use(cors({
+  origin: function (origin, callback) {
+  if (!origin || allowedOrigins.includes(origin)) {
+    callback(null, true);
+  } else {
+    callback(new Error("Not allowed by CORS"));
+  }
+},
+  credentials: true,  //so we can handle cookies, CORS, authorization
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}))
 
 // Connect to MongoDB
 const connectDB = async () => {
