@@ -57,10 +57,10 @@ function Login() {
               Signup
             </Link>
             <Link
-              to={"/courses"}
+              to={"/"}
               className="bg-cyan-500 hover:bg-orange-600 text-sm md:text-md md:py-2 md:px-4 rounded-md"
             >
-              Join now
+             Home
             </Link>
           </div>
         </header>
