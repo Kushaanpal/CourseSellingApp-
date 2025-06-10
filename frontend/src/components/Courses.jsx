@@ -78,7 +78,7 @@ function Courses() {
       >
         <div className="flex items-center mb-10">
           <img src={logo} alt="Logo" className="h-12 w-12 rounded-full" />
-          <span className="ml-3 text-2xl font-bold text-emerald-400 focus:outline-none focus:ring-0 select-none">CourseHub</span>
+          <span className="ml-3 text-2xl font-bold text-emerald-400 focus:outline-none focus:ring-0 select-none">CourseHaven</span>
         </div>
         <nav>
           <ul className="space-y-4 text-gray-300">
