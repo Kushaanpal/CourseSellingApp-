@@ -63,12 +63,7 @@ function Signup() {
             >
               Login
             </Link>
-            <Link
-              to={"/courses"}
-              className="bg-cyan-500 p-1 text-sm md:text-md md:py-2 md:px-4 rounded-md"
-            >
-              Join now
-            </Link>
+           
           </div>
         </header>
 
@@ -159,7 +154,7 @@ function Signup() {
               type="submit"
               className="w-full bg-orange-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition text-sm"
             >
-              Signup
+            Create my account
             </button>
           </form>
         </div>
