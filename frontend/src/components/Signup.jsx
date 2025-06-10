@@ -45,7 +45,7 @@ function Signup() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-black to-blue-950">
+    <div className="bg-gradient-to-r from-[#0f2027] via-[#203a43] to-[#2c5364] min-h-screen">
       <div className="h-screen container mx-auto flex flex-col items-center justify-center text-white relative">
 
         {/* Header */}
