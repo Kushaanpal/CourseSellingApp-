@@ -166,7 +166,7 @@ function Home() {
               ))}
             </Slider>
           ) : (
-            <p className="text-center text-white">No courses found.</p>
+            <p className="text-center text-white">Loading....</p>
           )}
         </section>
 
