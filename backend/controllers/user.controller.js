@@ -1,6 +1,6 @@
 import { User } from "../models/user.model.js";
 import bcrypt from "bcryptjs"
-import { z } from "zod";//It checks if the input data matches the schema.It returns an object with:
+import { z } from "zod";//For server side validation .It checks if the input data matches the schema.It returns an object with:
 //success: true and the parsed data if validation passes.
 
 import jwt from "jsonwebtoken";
@@ -48,7 +48,9 @@ export const login=async(req,res)=>{
             return res.status(403).json({errors:"Invalid credentials"});
         }
 
-        //jwt code
+        //jwt code   -> To keep users logged in.
+// ->To secure APIs (only people with valid tokens can access protected routes).
+// ->So you don’t need to save sessions or passwords in the browser.
         const token=jwt.sign({
             id:user._id,
             email: user.email,

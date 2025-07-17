@@ -1,6 +1,6 @@
 import express from "express";//Is a backend framework for building RESTful api with nodejs.(Representational State Transfer API)
 import dotenv from "dotenv";
-import mongoose from "mongoose";
+import mongoose from "mongoose";//library for MongoDB that simplifies interacting with the database in Node.js 
 import courseRoute from "./routes/course.route.js";
 import userRoute from "./routes/user.route.js";
 import adminRoute from "./routes/admin.route.js";
@@ -15,12 +15,15 @@ const app = express();
 
 const allowedOrigins=[
   "https://course-selling-app-rust.vercel.app",
-  "https://localhost:5173"
+  "https://localhost:5173",
+  'http://127.0.0.1:5173',
+  'http://localhost:3000',//if using another frontend port
+  undefined //for tools like Postman
 ];
 const port = process.env.PORT || 3000;
 const DB_URI = process.env.MONGO_URI;
 
-// Middleware to parse JSON
+// Middleware to parse JSON (converts https text based document into object)
 app.use(express.json());
 app.use(cookieParser());
 app.use(fileUpload({

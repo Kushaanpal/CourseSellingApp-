@@ -23,7 +23,7 @@ export const createCourse = async (req, res) => {
         .json({ errors: "Invalid file format. Only PNG and JPG are allowed" });
     }
 
-    // claudinary code
+    // cloudinary code(we cannot directly store image we need to keep it in cloud and take its url )
     const cloud_response = await cloudinary.uploader.upload(image.tempFilePath);
     if (!cloud_response || cloud_response.error) {
       return res
@@ -55,7 +55,7 @@ export const createCourse = async (req, res) => {
 export const updateCourse = async (req, res) => {
   const adminId = req.adminId;
   const { courseId } = req.params;
-  const { title, description, price } = req.body;
+  const { title, description, price } = req.body;//destructuring is done req.body is object containing the data sent in the body of an HTTP request and we extract title etc from it 
 
   try {
     const course = await Course.findOne({
